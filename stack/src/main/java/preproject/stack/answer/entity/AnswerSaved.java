@@ -1,6 +1,5 @@
 package preproject.stack.answer.entity;
 
-import preproject.stack.post.entity.Post;
 import preproject.stack.saved.entity.Saved;
 
 import javax.persistence.*;

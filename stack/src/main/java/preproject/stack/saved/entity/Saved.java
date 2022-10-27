@@ -7,7 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Saved {
-    private long savedId;
-    private Member member;
-    private List<Post> savedPosts = new ArrayList<>();
+
+    @Id @GeneratedValue
+    private Long savedId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID")
+    private User user;
+
+    @OneToMany(mappedBy = "saved",cascade = CascadeType.ALL)
+    private List<PostSaved> postSaveds = new ArrayList<>();
 }

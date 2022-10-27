@@ -6,10 +6,9 @@ import lombok.Setter;
 @Getter @Setter
 public class AnswerPatchDto {
 
-    private Long answerId;
-
-    private String title;
-
+    private Integer answerId;
     private String body;
+    private int voteCount;
+    private int readCount;
 
 }

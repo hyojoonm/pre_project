@@ -20,7 +20,7 @@ public class Post {
     private String title;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "USER_ID")
     private User user;
 
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL)
@@ -34,6 +34,6 @@ public class Post {
 
     private Long Pictures;
 
-    @Embedded
-    private Address address;
+/*    @Embedded
+    private Address address;*/
 }

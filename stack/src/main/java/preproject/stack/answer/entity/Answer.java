@@ -1,27 +1,29 @@
 package preproject.stack.answer.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-import preproject.stack.post.entity.Address;
+import lombok.*;
+import preproject.stack.answer.entity.Address;
+import preproject.stack.audit.Timestamped;
 import preproject.stack.post.entity.Post;
 import preproject.stack.user.entity.User;
 
 import javax.persistence.*;
 
-@Entity
 @Getter
 @Setter
-public class Answer {
+@NoArgsConstructor
+@Entity
+public class Answer extends Timestamped {
 
-    @Id @GeneratedValue
-    private Integer answerId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long answerId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @ManyToOne
+    @JoinColumn(name = "USER_ID")
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id")
+    @ManyToOne
+    @JoinColumn(name = "POST_ID")
     private Post post;
 
     private String content;

@@ -1,20 +1,19 @@
 package preproject.stack.answer.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.Embeddable;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import java.util.Date;
+
 
 @Embeddable
+@Setter
+@Getter
 public class Address {
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
+    @ColumnDefault("'0'")
+    private Integer voteCount;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedDate;
-
-    private int voteCount;
-
-    private int readCount;
+    @ColumnDefault("'0'")
+    private Integer readCount;
 }

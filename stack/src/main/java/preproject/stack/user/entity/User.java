@@ -15,11 +15,11 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class User {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
@@ -27,7 +27,6 @@ public class User {
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<Saved> saveds = new ArrayList<>();
-
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<Answers> answers = new ArrayList<>();
@@ -37,10 +36,10 @@ public class User {
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private UserStatus status;
+    private UserStatus userStatus = UserStatus.ACTIVE;
 
     @Enumerated(EnumType.STRING)
-    private UserRole role;
+    private UserRole userRole = UserRole.NORMAL;
 
     public User(String userName, String email) {
         this.userName = userName;
